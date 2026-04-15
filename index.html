@@ -1,1 +1,540 @@
-old mcdonald had a farm ai ai o. and on that farm he had a bird. ai ai o. With an AI here and an AI THERE AI IS EVERYWHERE NOTHING MAKES SENSE
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIIbirds • The Original AI Sneakers (Sneakernet is coming back)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Space+Grotesk:wght@500&amp;display=swap');
+        
+        :root {
+            --tw-color-primary: #00d4aa;
+        }
+        
+        * {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        
+        .tailwind-ready .hero-bg {
+            background: linear-gradient(92deg, #f8f9ff 0%, #e0f8f0 100%);
+        }
+        
+        .logo-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .shoe-float {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="tailwind-ready">
+    <!-- TOP PROMO BAR -->
+    <div class="bg-[#00d4aa] text-white text-center text-sm font-medium py-2 px-4 flex items-center justify-center gap-x-2">
+        <span class="inline-flex items-center gap-x-1">
+            ⚡ FREE PROMPT SHIPPING ON ORDERS OVER $75
+        </span>
+        <span class="mx-4 hidden md:inline">•</span>
+        <span class="flex items-center gap-x-1">
+            EASY 365-DAY RETURNS • NO HALLUCINATIONS GUARANTEED
+        </span>
+        <a href="#" onclick="fakeCartAdd()" class="ml-auto flex items-center text-xs uppercase tracking-widest hover:underline">
+            <span class="mr-1">YOUR CART (0)</span>
+            <span id="cart-count-badge" class="hidden bg-white text-[#00d4aa] text-[10px] font-bold px-1.5 rounded-full">0</span>
+        </a>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex items-center justify-between px-6 py-5">
+                
+                <!-- Logo -->
+                <div class="flex items-center gap-x-2">
+                    <div class="w-9 h-9 bg-[#00d4aa] text-white rounded-2xl flex items-center justify-center text-3xl rotate-12">🐦</div>
+                    <h1 class="logo-font text-3xl tracking-[-2px] text-black">AIIbirds</h1>
+                    <span class="text-[10px] font-mono bg-black text-white px-1.5 py-px rounded mt-1">AI™</span>
+                </div>
+
+                <!-- Menu -->
+                <ul class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                    <li><a href="#" class="hover:text-[#00d4aa]">SHOP NEURAL WOMENS</a></li>
+                    <li><a href="#" class="hover:text-[#00d4aa]">SHOP NEURAL MENS</a></li>
+                    <li><a href="#" class="hover:text-[#00d4aa]">SHOP PROMPT SOCKS</a></li>
+                    <li><a href="#" class="hover:text-[#00d4aa]">NEW PROMPTS</a></li>
+                    <li><a href="#" class="text-[#00d4aa] font-semibold">AI SALE (70% OFF HYPE)</a></li>
+                </ul>
+
+                <!-- Right side -->
+                <div class="flex items-center gap-x-6">
+                    <div class="relative">
+                        <input 
+                            type="text" 
+                            placeholder="Search the future..." 
+                            class="w-72 bg-gray-100 border border-transparent focus:border-[#00d4aa] rounded-3xl py-2 px-5 pl-10 text-sm outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400 absolute left-4 top-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 01-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                    
+                    <button onclick="toggleAccount()" class="flex items-center gap-x-1 text-sm font-medium">
+                        <span>🤖</span>
+                        <span class="hidden md:block">ACCOUNT</span>
+                    </button>
+                    
+                    <button onclick="fakeCartAdd()" class="flex items-center relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        <span id="cart-count" class="absolute -top-1 -right-1 bg-[#00d4aa] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    </button>
+                    
+                    <!-- Mobile menu button -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden text-2xl">☰</button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden px-6 pb-6 border-t">
+                <ul class="flex flex-col gap-y-4 text-sm font-medium pt-4">
+                    <li><a href="#" class="block py-2">SHOP NEURAL WOMENS</a></li>
+                    <li><a href="#" class="block py-2">SHOP NEURAL MENS</a></li>
+                    <li><a href="#" class="block py-2">SHOP PROMPT SOCKS</a></li>
+                    <li><a href="#" class="block py-2">NEW PROMPTS</a></li>
+                    <li><a href="#" class="block py-2 text-[#00d4aa]">AI SALE (70% OFF HYPE)</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero-bg pt-12 pb-16 md:pt-20 md:pb-24">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left text -->
+            <div class="md:col-span-7">
+                <div class="inline-flex items-center gap-x-2 bg-white shadow-sm border border-[#00d4aa]/30 text-[#00d4aa] text-xs font-medium px-4 h-8 rounded-3xl mb-6">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00d4aa] opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-[#00d4aa]"></span>
+                    </span>
+                    NOW TRAINING • THE ORIGINAL AI SNEAKERS
+                </div>
+                
+                <h2 class="text-6xl md:text-7xl leading-none font-semibold tracking-[-3px] max-w-lg">
+                    THE NEW<br>NEURAL CRUISER<br>COLLECTION
+                </h2>
+                
+                <p class="mt-6 text-2xl font-light text-gray-700 max-w-md">
+                    Bold by AI. Trained on 14 billion real footsteps.
+                </p>
+                
+                <p class="mt-3 text-xl text-gray-500">
+                    Show your true <span class="font-medium">prompts</span> in eight exclusive AI-curated colors.
+                </p>
+                
+                <div class="mt-8 flex items-center gap-x-4">
+                    <a onclick="shopNow()" 
+                       class="bg-black hover:bg-[#00d4aa] hover:text-black text-white px-8 py-4 rounded-3xl text-lg font-medium flex items-center gap-x-3">
+                        SHOP THE FUTURE
+                        <span class="text-2xl">→</span>
+                    </a>
+                    
+                    <a onclick="showSneakernet()" 
+                       class="border-2 border-black hover:bg-black hover:text-white px-8 py-4 rounded-3xl text-lg font-medium flex items-center">
+                        WHY SNEAKERNET IS COMING BACK
+                    </a>
+                </div>
+                
+                <div class="mt-10 flex items-center gap-x-8 text-sm">
+                    <div class="flex items-center gap-x-1">
+                        <span class="text-3xl">👟</span>
+                        <div>
+                            <div class="font-semibold">4.98 stars</div>
+                            <div class="text-gray-500 text-xs">from 1,337,420 reviewers who actually walked</div>
+                        </div>
+                    </div>
+                    <div class="h-8 w-px bg-gray-300"></div>
+                    <p class="text-gray-500 max-w-[260px] text-sm">
+                        “These shoes don’t just walk. They <span class="italic">think</span>. Finally, footwear that understands my vibe.” 
+                        — @elonmusk (probably)
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Right visual -->
+            <div class="md:col-span-5 relative flex justify-center">
+                <div class="relative">
+                    <!-- Fake floating shoes -->
+                    <div class="shoe-float bg-white shadow-2xl border border-gray-100 w-64 h-64 rounded-3xl flex items-center justify-center rotate-[-12deg] z-10">
+                        <div class="text-[120px] drop-shadow-xl">👟</div>
+                        <div class="absolute -top-2 -right-2 bg-[#00d4aa] text-white text-xs font-bold px-3 py-1 rounded-3xl rotate-12">NEURAL</div>
+                        <div class="absolute bottom-6 left-6 bg-black text-white text-xs px-2 py-px rounded">v1.0</div>
+                    </div>
+                    
+                    <!-- Second shoe -->
+                    <div class="shoe-float absolute -top-8 right-8 bg-white shadow-2xl border border-gray-100 w-52 h-52 rounded-3xl flex items-center justify-center rotate-[12deg] z-20 delay-300" style="animation-delay: 800ms;">
+                        <div class="text-[110px] drop-shadow-xl">🐦</div>
+                        <div class="absolute top-6 right-6 text-4xl">🔥</div>
+                    </div>
+                    
+                    <!-- Badge -->
+                    <div class="absolute -bottom-4 -left-4 bg-white shadow-xl rounded-3xl px-6 py-3 flex items-center gap-x-3 text-sm font-medium">
+                        <div class="px-3 py-1 bg-[#00d4aa] text-white rounded-2xl">NOW IN</div>
+                        <div class="flex -space-x-4">
+                            <div class="w-8 h-8 bg-violet-300 rounded-2xl flex items-center justify-center text-lg">💾</div>
+                            <div class="w-8 h-8 bg-cyan-300 rounded-2xl flex items-center justify-center text-lg">🌐</div>
+                            <div class="w-8 h-8 bg-amber-300 rounded-2xl flex items-center justify-center text-lg">☁️</div>
+                        </div>
+                        <span class="text-[#00d4aa]">8 AI COLORS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BEST SELLERS -->
+    <div class="max-w-7xl mx-auto px-6 py-16">
+        <div class="flex items-baseline justify-between mb-8">
+            <h3 class="text-4xl font-semibold tracking-tight">BEST PROMPTS RIGHT NOW</h3>
+            <a href="#" onclick="shopNow()" class="flex items-center text-[#00d4aa] hover:underline text-sm font-medium">
+                SEE ALL NEURAL HITS <span class="ml-2 text-xl">→</span>
+            </a>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <!-- Product 1 -->
+            <div onclick="addToCart(this)" class="group cursor-pointer bg-white border border-gray-100 rounded-3xl overflow-hidden hover:border-[#00d4aa]">
+                <div class="h-72 bg-gradient-to-br from-violet-100 to-sky-100 flex items-center justify-center text-8xl relative">
+                    👟
+                    <span class="absolute top-6 left-6 text-xs font-mono bg-white px-3 py-1 rounded-3xl shadow">PROMPT BLUE</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="font-semibold text-xl">Neural Cruiser</h4>
+                            <p class="text-sm text-gray-500">Men’s • Trained on 2.3B steps</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-2xl font-semibold">$75</div>
+                            <div class="text-xs text-emerald-600">IN STOCK</div>
+                        </div>
+                    </div>
+                    <p class="mt-2 text-xs uppercase tracking-widest text-gray-400">4.9 • 420k walked</p>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div onclick="addToCart(this)" class="group cursor-pointer bg-white border border-gray-100 rounded-3xl overflow-hidden hover:border-[#00d4aa]">
+                <div class="h-72 bg-gradient-to-br from-amber-100 to-pink-100 flex items-center justify-center text-8xl relative">
+                    👟
+                    <span class="absolute top-6 left-6 text-xs font-mono bg-white px-3 py-1 rounded-3xl shadow">PROMPT PINK</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="font-semibold text-xl">Tree Prompt Runner</h4>
+                            <p class="text-sm text-gray-500">Women’s • Zero hallucinations</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-2xl font-semibold">$95</div>
+                            <div class="text-xs text-emerald-600">JUST SHIPPED</div>
+                        </div>
+                    </div>
+                    <p class="mt-2 text-xs uppercase tracking-widest text-gray-400">5.0 • 1.2M walked</p>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div onclick="addToCart(this)" class="group cursor-pointer bg-white border border-gray-100 rounded-3xl overflow-hidden hover:border-[#00d4aa]">
+                <div class="h-72 bg-gradient-to-br from-emerald-100 to-cyan-100 flex items-center justify-center text-8xl relative">
+                    🧦
+                    <span class="absolute top-6 left-6 text-xs font-mono bg-white px-3 py-1 rounded-3xl shadow">NEURAL SOCKS</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="font-semibold text-xl">Prompt Wool Socks</h4>
+                            <p class="text-sm text-gray-500">Unisex • Machine learning toe box</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-2xl font-semibold">$18</div>
+                            <div class="text-xs text-emerald-600">BESTSELLER</div>
+                        </div>
+                    </div>
+                    <p class="mt-2 text-xs uppercase tracking-widest text-gray-400">4.8 • 890k worn</p>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div onclick="addToCart(this)" class="group cursor-pointer bg-white border border-gray-100 rounded-3xl overflow-hidden hover:border-[#00d4aa]">
+                <div class="h-72 bg-gradient-to-br from-rose-100 to-purple-100 flex items-center justify-center text-8xl relative">
+                    👟
+                    <span class="absolute top-6 left-6 text-xs font-mono bg-white px-3 py-1 rounded-3xl shadow">DEEP PROMPT NAVY</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="font-semibold text-xl">Canvas Thinker</h4>
+                            <p class="text-sm text-gray-500">Unisex • Carbon-neutral training data</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-2xl font-semibold">$85</div>
+                            <div class="text-xs text-emerald-600">NEW COLOR</div>
+                        </div>
+                    </div>
+                    <p class="mt-2 text-xs uppercase tracking-widest text-gray-400">5.0 • 69k walked</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WHY AIIBIRDS SECTION (with the requested joke) -->
+    <div class="bg-black text-white py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12">
+                
+                <div>
+                    <div class="text-[#00d4aa] text-xs font-medium mb-3 tracking-[1px]">INTELLIGENCE IN EVERY STEP</div>
+                    <h3 class="text-4xl font-semibold tracking-tight leading-none">Wear all-day<br>intelligence.</h3>
+                    <p class="mt-6 text-gray-300">Lightweight. Bouncy. Remembers where you left your keys. These shoes don’t just support your feet — they support your entire workflow.</p>
+                </div>
+                
+                <div>
+                    <div class="text-[#00d4aa] text-xs font-medium mb-3 tracking-[1px]">THE FUTURE IS ANALOG</div>
+                    <h3 class="text-4xl font-semibold tracking-tight leading-none">Sneakernet is coming back.</h3>
+                    <p class="mt-6 text-gray-300">Why pay for cloud compute when you can physically walk your data around in the most comfortable neural net ever invented? No latency. No subscription. Just pure, foot-powered intelligence.</p>
+                    <div class="mt-8 text-xs uppercase border border-[#00d4aa] text-[#00d4aa] inline-block px-6 py-4 rounded-3xl">SNEAKERNET 2.0 • 100% OFFLINE • 1000% MORE COMFORT</div>
+                </div>
+                
+                <div>
+                    <div class="text-[#00d4aa] text-xs font-medium mb-3 tracking-[1px]">TRAINED ON NATURE</div>
+                    <h3 class="text-4xl font-semibold tracking-tight leading-none">Materials from the algorithm.</h3>
+                    <p class="mt-6 text-gray-300">Merino wool, eucalyptus tree fiber, and sugarcane. We didn’t just copy nature — we fine-tuned it with 400 billion parameters of hype. Carbon negative? More like carbon sarcastic.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TESTIMONIAL / JOKE SECTION -->
+    <div class="max-w-7xl mx-auto px-6 py-20 border-b">
+        <div class="text-center max-w-2xl mx-auto">
+            <p class="text-3xl leading-snug italic">"I used to fine-tune models at 3am. Now I just put on my AIIbirds and walk outside. My GPU thanks me. My feet thank me. Sneakernet really is the future."</p>
+            <div class="mt-8 flex justify-center items-center gap-x-3">
+                <div class="w-9 h-px bg-gray-300"></div>
+                <p class="uppercase text-xs tracking-widest text-gray-400">— Some guy who definitely exists</p>
+                <div class="w-9 h-px bg-gray-300"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FINAL CTA BANNER -->
+    <div class="bg-[#00d4aa] py-12 text-center text-white">
+        <div class="max-w-2xl mx-auto px-6">
+            <p class="text-4xl font-medium">Ready to walk the walk?</p>
+            <p class="mt-2 text-2xl">Join the original AI flock. No tokens required.</p>
+            <button onclick="shopNow()" 
+                    class="mt-8 bg-white text-black hover:bg-black hover:text-white px-12 py-6 text-2xl rounded-3xl font-semibold inline-flex items-center">
+                START WALKING THE FUTURE
+                <span class="ml-6 text-4xl">👟</span>
+            </button>
+            <p class="text-xs mt-6 opacity-75">Limited edition drops every time someone says “AGI”</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-white text-sm">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-y-12 py-16">
+            <div>
+                <div class="flex items-center gap-x-2 mb-6">
+                    <div class="w-8 h-8 bg-[#00d4aa] text-black rounded-2xl flex items-center justify-center text-3xl rotate-12">🐦</div>
+                    <span class="logo-font text-3xl">AIIbirds</span>
+                </div>
+                <p class="text-gray-400">The original AI sneakers.<br>Because the cloud was never going to be comfortable.</p>
+                <p class="mt-8 text-xs text-gray-500">© 2026 AIIbirds Inc. All parameters reserved.</p>
+            </div>
+            
+            <div>
+                <div class="uppercase text-[#00d4aa] text-xs mb-4">Shop</div>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="#" class="hover:text-white">Neural Womens</a></li>
+                    <li><a href="#" class="hover:text-white">Neural Mens</a></li>
+                    <li><a href="#" class="hover:text-white">Prompt Socks</a></li>
+                    <li><a href="#" class="hover:text-white">The AI Sale</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <div class="uppercase text-[#00d4aa] text-xs mb-4">Learn</div>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="#" onclick="showSneakernet()" class="hover:text-white">Why Sneakernet is coming back</a></li>
+                    <li><a href="#" class="hover:text-white">Our ridiculous carbon story</a></li>
+                    <li><a href="#" class="hover:text-white">How we trained these shoes</a></li>
+                    <li><a href="#" class="hover:text-white">The Flock Manifesto</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <div class="uppercase text-[#00d4aa] text-xs mb-4">STAY IN THE PROMPT</div>
+                <div class="flex">
+                    <input type="text" placeholder="your@email.com" 
+                           class="flex-1 bg-white/10 border border-white/30 focus:border-[#00d4aa] rounded-l-3xl px-5 py-4 text-sm outline-none">
+                    <button onclick="subscribe()" 
+                            class="bg-[#00d4aa] text-black font-medium px-8 rounded-r-3xl">SUBSCRIBE</button>
+                </div>
+                <p class="mt-6 text-xs text-gray-400">Get weekly AI shoe drops and zero spam (we promise not to hallucinate your inbox).</p>
+                
+                <div class="mt-12 flex gap-x-4 text-2xl">
+                    <span class="cursor-pointer hover:text-[#00d4aa]">𝕏</span>
+                    <span class="cursor-pointer hover:text-[#00d4aa]">📸</span>
+                    <span class="cursor-pointer hover:text-[#00d4aa]">𝕐</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center text-[10px] text-gray-500 py-6 border-t border-white/10">
+            MADE WITH ♥ AND TOO MANY PARAMETERS • THIS IS A SINGLE-FILE PARODY FOR GITHUB PAGES
+        </div>
+    </footer>
+
+    <script>
+        /**
+         * TailwindCSS initialization
+         */
+        function initializeTailwind() {
+            return {
+                config(userConfig = {}) {
+                    return {
+                        configUser: userConfig,
+                        theme: {
+                            extend: {
+                                colors: {
+                                    primary: '#00d4aa'
+                                }
+                            }
+                        }
+                    }
+                },
+                theme: {
+                    extend: {}
+                }
+            }
+        }
+        
+        /**
+         * Fake cart functionality
+         */
+        let cartCount = 0
+        
+        function addToCart(el) {
+            cartCount++
+            document.getElementById('cart-count').textContent = cartCount
+            const badge = document.getElementById('cart-count-badge')
+            badge.classList.remove('hidden')
+            badge.textContent = cartCount
+            
+            // Little animation
+            el.style.transform = 'scale(0.95)'
+            setTimeout(() => { el.style.transform = 'scale(1)' }, 150)
+            
+            // Toast
+            const toast = document.createElement('div')
+            toast.style.cssText = 'position:fixed; bottom:24px; right:24px; background:#00d4aa; color:black; padding:16px 24px; border-radius:9999px; box-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1); display:flex; align-items:center; gap:12px;'
+            toast.innerHTML = `✅ Added to cart!<br><span class="text-xs opacity-70">Your shoes are now smarter than you</span>`
+            document.body.appendChild(toast)
+            setTimeout(() => toast.remove(), 2800)
+        }
+        
+        function fakeCartAdd() {
+            addToCart({ style: {} })
+        }
+        
+        /**
+         * Mobile menu
+         */
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu')
+            menu.classList.toggle('hidden')
+        }
+        
+        /**
+         * Fake account modal
+         */
+        function toggleAccount() {
+            const modalHTML = `
+            <div onclick="if(event.target.id === 'modal-backdrop')this.remove()" id="modal-backdrop" class="fixed inset-0 bg-black/70 flex items-center justify-center z-[9999]">
+                <div onclick="event.stopImmediatePropagation()" class="bg-white text-black rounded-3xl max-w-md w-full mx-4 p-8">
+                    <h2 class="text-3xl font-semibold mb-2">Welcome to the flock, human.</h2>
+                    <p class="text-gray-500 mb-8">Sign in with your neural imprint</p>
+                    <div class="space-y-4">
+                        <button onclick="this.closest('.fixed').remove();alert('🔥 Logged in as @promptmaster42 (just kidding)')" 
+                                class="w-full py-4 border-2 border-black rounded-3xl text-left px-6 flex items-center justify-between">
+                            <span>Continue with 𝕏</span>
+                            <span class="text-2xl">𝕏</span>
+                        </button>
+                        <button onclick="this.closest('.fixed').remove()" 
+                                class="w-full py-4 border border-gray-300 rounded-3xl text-left px-6">Sign in with email (boring)</button>
+                    </div>
+                    <p class="text-center text-xs mt-8 text-gray-400">Or just keep walking. No login required for comfort.</p>
+                </div>
+            </div>`
+            const modal = document.createElement('div')
+            modal.innerHTML = modalHTML
+            document.body.appendChild(modal.firstElementChild)
+        }
+        
+        /**
+         * Shop CTA
+         */
+        function shopNow() {
+            const message = document.createElement('div')
+            message.style.cssText = 'position:fixed; top:24px; left:50%; transform:translateX(-50%); background:black; color:#00d4aa; padding:20px 40px; border-radius:9999px; font-weight:600; box-shadow:25px 25px 0 -10px #00d4aa;'
+            message.innerHTML = `🛒 THANK YOU FOR SHOPPING THE FUTURE<br><span class="text-xs opacity-70">Your order is now being fine-tuned…</span>`
+            document.body.append(message)
+            setTimeout(() => message.remove(), 3500)
+        }
+        
+        /**
+         * Sneakernet modal / joke reveal
+         */
+        function showSneakernet() {
+            const sneakernetHTML = `
+            <div onclick="if(event.target.id === 'sneak-modal')this.remove()" id="sneak-modal" class="fixed inset-0 bg-black/80 flex items-end md:items-center justify-center z-[99999]">
+                <div onclick="event.stopImmediatePropagation()" class="bg-white text-black w-full md:w-auto md:rounded-3xl rounded-t-3xl max-w-lg mx-auto p-8 md:p-10">
+                    <div class="flex justify-between items-baseline">
+                        <h2 class="text-5xl leading-none font-semibold">Sneakernet is coming back.</h2>
+                        <span onclick="this.closest('.fixed').remove()" class="text-5xl cursor-pointer leading-none">×</span>
+                    </div>
+                    <p class="mt-6 text-xl">The cloud is expensive.<br>The network is slow.<br>Your feet are already trained.</p>
+                    <div class="my-12 border-l-4 border-[#00d4aa] pl-6 text-2xl font-light">
+                        Why pay millions for GPUs when you can just <span class="font-semibold">walk</span> the data to the next room?
+                    </div>
+                    <p class="text-sm opacity-70">AIIbirds: making physical movement cool again since the first bird learned to fly.</p>
+                    <button onclick="this.closest('.fixed').remove();shopNow()" class="mt-8 w-full py-6 bg-black text-white rounded-3xl text-lg">BUY YOUR SNEAKERNET NOW</button>
+                </div>
+            </div>`
+            const modal = document.createElement('div')
+            modal.innerHTML = sneakernetHTML
+            document.body.appendChild(modal.firstElementChild)
+        }
+        
+        /**
+         * Fake subscribe
+         */
+        function subscribe() {
+            alert("🎉 You are now part of the neural flock!\n\n(Your inbox will remain delightfully empty)")
+        }
+        
+        /**
+         * Main initialization
+         */
+        window.onload = function () {
+            initializeTailwind()
+            console.log('%c🚀 AIIbirds single-file homepage ready for GitHub Pages! (Sneakernet edition)', 'background:#00d4aa;color:black;padding:1px 4px;font-size:10px')
+        }
+    </script>
+</body>
+</html>
